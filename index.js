@@ -12,8 +12,8 @@ app.use(express.json())
 app.use(cors());
 intializeDatabase()
 
-const jsonData = fs.readFileSync("./books.json", "utf-8")
-const booksData = JSON.parse(jsonData)
+// const jsonData = fs.readFileSync("./books.json", "utf-8")
+// const booksData = JSON.parse(jsonData)
 
 function seedData() {
     try {
@@ -37,6 +37,10 @@ function seedData() {
 }
 
 // seedData()
+
+app.get("/", (req, res) => {
+    res.send("Hello, Welcome to Books Management.")
+})
 
 async function createNewBooks(data) {
     try {
