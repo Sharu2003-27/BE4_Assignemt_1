@@ -3,11 +3,13 @@ const Book = require("./model/books.model")
 const fs = require("fs")
 
 const express = require("express")
+const cors = require("cors");
 const { json } = require("stream/consumers")
 const { error } = require("console")
 const app = express()
 
 app.use(express.json())
+app.use(cors());
 intializeDatabase()
 
 const jsonData = fs.readFileSync("./books.json", "utf-8")
